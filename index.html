@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Доктор Петров - Техники самопомощи</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: #87CEEB;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 480px;
+            margin: 0 auto;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .screen {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            animation: fadeIn 0.3s ease-in;
+            position: relative;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            padding: 30px 0;
+            color: white;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo-container {
+            margin-bottom: 20px;
+        }
+
+        .logo {
+            width: 180px;
+            height: 180px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Фоновые логотипы */
+        .background-logos {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-logo {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            opacity: 0.08;
+            background-image: url('logo.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+
+        .bg-logo:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            transform: rotate(-15deg);
+        }
+
+        .bg-logo:nth-child(2) {
+            top: 15%;
+            right: 8%;
+            transform: rotate(20deg);
+        }
+
+        .bg-logo:nth-child(3) {
+            top: 45%;
+            left: 3%;
+            transform: rotate(10deg);
+        }
+
+        .bg-logo:nth-child(4) {
+            top: 50%;
+            right: 5%;
+            transform: rotate(-25deg);
+        }
+
+        .bg-logo:nth-child(5) {
+            bottom: 15%;
+            left: 8%;
+            transform: rotate(30deg);
+        }
+
+        .bg-logo:nth-child(6) {
+            bottom: 10%;
+            right: 6%;
+            transform: rotate(-10deg);
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: 200;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .subtitle {
+            font-size: 14px;
+            opacity: 0.9;
+            letter-spacing: 2px;
+        }
+
+        /* Button Styles */
+        .menu-button {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 25px;
+            padding: 18px 30px;
+            margin: 10px 0;
+            width: 100%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 5;
+        }
+
+        .menu-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .menu-button-title {
+            font-size: 18px;
+            color: #48D1CC;
+            letter-spacing: 3px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .menu-button-subtitle {
+            font-size: 12px;
+            color: #87CEEB;
+            letter-spacing: 1px;
+        }
+
+        .menu-button.secondary {
+            background: rgba(255, 255, 255, 0.85);
+        }
+
+        .menu-button.panic .menu-button-title {
+            color: #FF6B6B;
+        }
+
+        .menu-button.special {
+            background: rgba(30, 30, 30, 0.9);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .menu-button.special .menu-button-title {
+            color: #FF6B6B;
+        }
+
+        .menu-button.special .menu-button-subtitle {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .menu-button.meditation .menu-button-title {
+            color: #9C27B0;
+        }
+
+        .menu-button.relaxation .menu-button-title {
+            color: #FF6B9D;
+        }
+
+        /* Back Button */
+        .back-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .back-button:hover {
+            opacity: 0.8;
+        }
+
+        /* Breathing Circle */
+        .breathing-circle-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 40px 0;
+            min-height: 250px;
+        }
+
+        .breathing-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #48D1CC;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(72, 209, 204, 0.4);
+            transition: all 0.3s ease;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .phase-text {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .phase-subtext {
+            font-size: 13px;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .countdown {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        /* Control Buttons */
+        .control-button {
+            background: #48D1CC;
+            border: 2px solid white;
+            border-radius: 25px;
+            padding: 14px 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 10px auto;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .control-button:hover {
+            background: #40B3B0;
+        }
+
+        .control-button.stop {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .control-button.stop:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .control-button.pause {
+            background: #FFA500;
+        }
+
+        .control-button.resume {
+            background: #4CAF50;
+        }
+
+        /* Stats */
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 30px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            padding: 15px 25px;
+            text-align: center;
+            color: white;
+            border: 2px solid rgba(72, 209, 204, 0.4);
+        }
+
+        .stat-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-title {
+            font-size: 18px;
+            color: #2C5F7C;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .card-description {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        .card-button {
+            background: none;
+            border: none;
+            color: #48D1CC;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 15px;
+            letter-spacing: 1px;
+        }
+
+        /* Техника заземления */
+        .grounding-card {
+            background: #16213e;
+            color: white;
+            padding: 25px;
+            border-radius: 20px;
+            margin: 20px 0;
+        }
+
+        .grounding-title {
+            font-size: 22px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .grounding-subtitle {
+            font-size: 14px;
+            color: #B0B0B0;
+            text-align: center;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .technique-step {
+            background: #0f3460;
+            border-radius: 15px;
+            padding: 15px;
+            border-left: 4px solid #4ECDC4;
+            margin-bottom: 15px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .step-number {
+            font-size: 32px;
+            font-weight: bold;
+            color: #4ECDC4;
+            margin-right: 15px;
+            width: 40px;
+        }
+
+        .step-text {
+            flex: 1;
+            color: white;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        .step-action {
+            color: #4ECDC4;
+            font-weight: bold;
+        }
+
+        .step-example {
+            color: #808080;
+            font-size: 13px;
+            font-style: italic;
+            margin-top: 5px;
+            margin-left: 55px;
+        }
+
+        .info-block {
+            background: #0f3460;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        .info-title {
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .info-text {
+            color: #B0B0B0;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* Вредные советы */
+        .advice-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 20px 0;
+            border: 3px solid rgba(255, 107, 107, 0.4);
+            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.2);
+        }
+
+        .advice-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .advice-number {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF6B6B;
+            letter-spacing: 1px;
+        }
+
+        .today-badge {
+            background: #FF6B6B;
+            padding: 4px 12px;
+            border-radius: 12px;
+            color: white;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .advice-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333;
+            white-space: pre-line;
+        }
+
+        .page-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .page-subtitle {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.95);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .instructions-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 18px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(72, 209, 204, 0.3);
+        }
+
+        .instructions-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #2C5F7C;
+            margin-bottom: 14px;
+            text-align: center;
+        }
+
+        .instruction-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .instruction-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 16px;
+            background: #48D1CC;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 12px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .instruction-text {
+            flex: 1;
+        }
+
+        .instruction-main {
+            font-size: 14px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .instruction-sub {
+            font-size: 12px;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        /* Meditation Styles */
+        .meditation-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: #9C27B0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            box-shadow: 0 10px 30px rgba(156, 39, 176, 0.4);
+            margin: 40px auto;
+            border: 3px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .meditation-timer {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .meditation-prompt {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .meditation-prompt-text {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Relaxation Styles */
+        .relaxation-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #FF6B9D;
+        }
+
+        .relaxation-step {
+            background: rgba(255, 107, 157, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+        }
+
+        .relaxation-step-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF6B9D;
+            margin-bottom: 8px;
+        }
+
+        .relaxation-step-text {
+            font-size: 14px;
+            color: #333;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Главное меню -->
+        <div id="mainMenu" class="screen active">
+            <!-- Фоновые логотипы -->
+            <div class="background-logos">
+                <div class="bg-logo"></div>
+                <div class="bg-logo"></div>
+                <div class="bg-logo"></div>
+                <div class="bg-logo"></div>
+                <div class="bg-logo"></div>
+                <div class="bg-logo"></div>
+            </div>
+            
+            <div class="header">
+                <div class="logo-container">
+                    <div class="logo">
+                        <img src="logo.png" alt="Логотип д-р Петров" style="width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'; this.parentElement.innerHTML='д-р<br>Петров';">
+                    </div>
+                </div>
+                <h1 class="main-title">д-р Петров</h1>
+                <p class="subtitle">врач-психотерапевт</p>
+            </div>
+            
+            <button class="menu-button" onclick="showScreen('breathing478')">
+                <span class="menu-button-title">ДЫШУ 4-7-8</span>
+                <span class="menu-button-subtitle">классическая техника</span>
+            </button>
+            
+            <button class="menu-button secondary" onclick="showScreen('breathing4812')">
+                <span class="menu-button-title">ДЫШУ 4-8-12</span>
+                <span class="menu-button-subtitle">усиленная версия</span>
+            </button>
+            
+            <button class="menu-button secondary meditation" onclick="showScreen('meditationMenu')">
+                <span class="menu-button-title">МЕДИТИРУЮ</span>
+                <span class="menu-button-subtitle">практики осознанности</span>
+            </button>
+            
+            <button class="menu-button secondary relaxation" onclick="showScreen('relaxationMenu')">
+                <span class="menu-button-title">ОТПУСКАЮ</span>
+                <span class="menu-button-subtitle">снятие напряжения</span>
+            </button>
+            
+            <button class="menu-button secondary panic" onclick="showScreen('grounding')">
+                <span class="menu-button-title">НЕ ПАНИКУЮ</span>
+                <span class="menu-button-subtitle">техника заземления</span>
+            </button>
+            
+            <button class="menu-button special" onclick="showScreen('advice')">
+                <span class="menu-button-title">ВРЕДНЫЕ СОВЕТЫ</span>
+                <span class="menu-button-subtitle">от психотерапевта</span>
+            </button>
+        </div>
+
+        <!-- Экран дыхания 4-7-8 -->
+        <div id="breathing478" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">Дыхание 4-7-8</h2>
+            <p class="page-subtitle">Для снятия стресса и тревоги</p>
+            
+            <div class="card">
+                <div class="card-title">💙 Что даёт эта техника?</div>
+                <div class="card-description">
+                    • Снижает уровень стресса и тревожности<br>
+                    • Помогает быстрее заснуть<br>
+                    • Активирует парасимпатическую нервную систему<br>
+                    • Работает как естественное успокоительное
+                </div>
+            </div>
+            
+            <div class="instructions-card">
+                <div class="instructions-title">Как дышать правильно:</div>
+                <div class="instruction-row">
+                    <div class="instruction-number">4</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Медленный вдох через нос</div>
+                        <div class="instruction-sub">наполните легкие воздухом</div>
+                    </div>
+                </div>
+                <div class="instruction-row">
+                    <div class="instruction-number">7</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Задержка дыхания</div>
+                        <div class="instruction-sub">спокойно удерживайте воздух</div>
+                    </div>
+                </div>
+                <div class="instruction-row">
+                    <div class="instruction-number">8</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Медленный выдох через рот</div>
+                        <div class="instruction-sub">полностью освободите легкие</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="breathing-circle-container">
+                <div id="breathingCircle478" class="breathing-circle">
+                    <div class="phase-text">Готовность</div>
+                    <div class="phase-subtext">начните когда готовы</div>
+                    <div class="countdown">—</div>
+                </div>
+            </div>
+            
+            <button id="startBtn478" class="control-button" onclick="startBreathing478()">НАЧАТЬ ДЫШАТЬ</button>
+            <button id="stopBtn478" class="control-button stop" style="display:none" onclick="stopBreathing()">ОСТАНОВИТЬ</button>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-label">Циклов</div>
+                    <div id="cycles478" class="stat-value">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Время</div>
+                    <div id="time478" class="stat-value">0:00</div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <div class="card-title">💡 Совет</div>
+                <div class="card-description">
+                    Рекомендуется выполнять 4 цикла подряд. Можно делать упражнение сидя или лежа. 
+                    Особенно эффективно перед сном или в стрессовой ситуации.
+                </div>
+            </div>
+        </div>
+
+        <!-- Экран дыхания 4-8-12 -->
+        <div id="breathing4812" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">Дыхание 4-8-12</h2>
+            <p class="page-subtitle">Если не помогает первая</p>
+            
+            <div class="card">
+                <div class="card-title">💪 Усиленная версия</div>
+                <div class="card-description">
+                    • Более глубокая релаксация<br>
+                    • Интенсивное снятие напряжения<br>
+                    • Помогает при сильной тревоге<br>
+                    • Эффект наступает быстрее
+                </div>
+            </div>
+            
+            <div class="instructions-card">
+                <div class="instructions-title">Усиленная техника:</div>
+                <div class="instruction-row">
+                    <div class="instruction-number">4</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Глубокий вдох через нос</div>
+                        <div class="instruction-sub">максимально наполните легкие</div>
+                    </div>
+                </div>
+                <div class="instruction-row">
+                    <div class="instruction-number">8</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Долгая задержка</div>
+                        <div class="instruction-sub">удерживайте спокойно</div>
+                    </div>
+                </div>
+                <div class="instruction-row">
+                    <div class="instruction-number">12</div>
+                    <div class="instruction-text">
+                        <div class="instruction-main">Очень медленный выдох</div>
+                        <div class="instruction-sub">полностью расслабьтесь</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="breathing-circle-container">
+                <div id="breathingCircle4812" class="breathing-circle">
+                    <div class="phase-text">Готовность</div>
+                    <div class="phase-subtext">начните когда готовы</div>
+                    <div class="countdown">—</div>
+                </div>
+            </div>
+            
+            <button id="startBtn4812" class="control-button" onclick="startBreathing4812()">НАЧАТЬ ДЫШАТЬ</button>
+            <button id="stopBtn4812" class="control-button stop" style="display:none" onclick="stopBreathing()">ОСТАНОВИТЬ</button>
+            
+            <div class="stats-container">
+                <div class="stat-card">
+                    <div class="stat-label">Циклов</div>
+                    <div id="cycles4812" class="stat-value">0</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Время</div>
+                    <div id="time4812" class="stat-value">0:00</div>
+                </div>
+            </div>
+            
+            <div class="card" style="margin-top: 20px;">
+                <div class="card-title">⚠️ Важно</div>
+                <div class="card-description">
+                    Если почувствуете головокружение - сделайте паузу. 
+                    Это нормальная реакция при гипервентиляции. Начните с 2-3 циклов, 
+                    постепенно увеличивая до 6-8.
+                </div>
+            </div>
+        </div>
+
+        <!-- Меню медитаций -->
+        <div id="meditationMenu" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">Медитации</h2>
+            <p class="page-subtitle">Практики осознанности</p>
+            
+            <div class="card">
+                <div class="card-title">🧘 Сосредоточение на дыхании</div>
+                <div class="card-description">Базовая практика mindfulness. Наблюдайте за естественным дыханием без изменений.</div>
+                <button class="card-button" onclick="startMeditation('breathing', 5)">НАЧАТЬ (5 минут) →</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">🌊 Сканирование тела</div>
+                <div class="card-description">Последовательное осознавание всех частей тела от головы до пальцев ног.</div>
+                <button class="card-button" onclick="startMeditation('bodyscan', 10)">НАЧАТЬ (10 минут) →</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">💝 Любящая доброта</div>
+                <div class="card-description">Практика культивирования доброжелательности к себе и другим.</div>
+                <button class="card-button" onclick="startMeditation('lovingkindness', 7)">НАЧАТЬ (7 минут) →</button>
+            </div>
+        </div>
+
+        <!-- Экран медитации -->
+        <div id="meditationScreen" class="screen">
+            <button class="back-button" onclick="stopMeditation()">← Завершить</button>
+            
+            <h2 id="meditationTitle" class="page-title">Медитация</h2>
+            
+            <div class="meditation-circle">
+                <div class="meditation-timer" id="meditationTimer">5:00</div>
+                <div class="phase-subtext">осталось</div>
+            </div>
+            
+            <div class="meditation-prompt">
+                <div class="meditation-prompt-text" id="meditationPrompt">
+                    Устройтесь удобно. Закройте глаза или смягчите взгляд...
+                </div>
+            </div>
+            
+            <button id="pauseBtn" class="control-button pause" onclick="togglePause()">ПАУЗА</button>
+            <button class="control-button stop" onclick="stopMeditation()">ЗАВЕРШИТЬ</button>
+        </div>
+
+        <!-- Меню релаксации -->
+        <div id="relaxationMenu" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">Релаксация</h2>
+            <p class="page-subtitle">Снятие напряжения</p>
+            
+            <div class="card">
+                <div class="card-title">💪 Прогрессивная мышечная релаксация</div>
+                <div class="card-description">Последовательное напряжение и расслабление групп мышц для глубокого отдыха.</div>
+                <button class="card-button" onclick="showScreen('pmr')">НАЧАТЬ →</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">🏝️ Визуализация</div>
+                <div class="card-description">Мысленное путешествие в спокойное и безопасное место.</div>
+                <button class="card-button" onclick="showScreen('visualization')">НАЧАТЬ →</button>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">🎯 Быстрое снятие напряжения</div>
+                <div class="card-description">Короткие упражнения для разных зон тела в течение дня.</div>
+                <button class="card-button" onclick="showScreen('quickrelax')">НАЧАТЬ →</button>
+            </div>
+        </div>
+
+        <!-- Прогрессивная мышечная релаксация -->
+        <div id="pmr" class="screen">
+            <button class="back-button" onclick="showScreen('relaxationMenu')">← Назад к релаксации</button>
+            
+            <h2 class="page-title">Мышечная релаксация</h2>
+            <p class="page-subtitle">12 групп мышц</p>
+            
+            <div class="card">
+                <div class="card-description" style="margin-bottom: 20px;">
+                    Каждое упражнение выполняйте так:<br>
+                    <strong>5 секунд</strong> - напряжение<br>
+                    <strong>10 секунд</strong> - расслабление<br>
+                    Почувствуйте разницу между состояниями.
+                </div>
+            </div>
+            
+            <div class="relaxation-card">
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">1. Кисти и предплечья</div>
+                    <div class="relaxation-step-text">Сожмите кулаки как можно сильнее → отпустите и почувствуйте тепло</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">2. Плечи и руки</div>
+                    <div class="relaxation-step-text">Напрягите бицепсы, прижмите локти к телу → расслабьте</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">3. Лицо и лоб</div>
+                    <div class="relaxation-step-text">Поднимите брови высоко вверх → расслабьте, почувствуйте гладкость</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">4. Челюсть</div>
+                    <div class="relaxation-step-text">Сожмите зубы, напрягите челюсть → отпустите, приоткройте рот</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">5. Шея</div>
+                    <div class="relaxation-step-text">Прижмите подбородок к груди → расслабьте шею</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">6. Грудь</div>
+                    <div class="relaxation-step-text">Глубокий вдох, задержите → медленный выдох</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">7. Спина</div>
+                    <div class="relaxation-step-text">Сведите лопатки вместе → отпустите</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">8. Живот</div>
+                    <div class="relaxation-step-text">Втяните живот максимально → расслабьте</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">9. Ягодицы и бёдра</div>
+                    <div class="relaxation-step-text">Напрягите ягодицы и бёдра → отпустите напряжение</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">10. Икры</div>
+                    <div class="relaxation-step-text">Потяните носки на себя → расслабьте</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">11. Стопы</div>
+                    <div class="relaxation-step-text">Сожмите пальцы ног → отпустите</div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">12. Всё тело</div>
+                    <div class="relaxation-step-text">Напрягите всё тело сразу → полностью расслабьтесь и отдохните 2 минуты</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Визуализация -->
+        <div id="visualization" class="screen">
+            <button class="back-button" onclick="showScreen('relaxationMenu')">← Назад к релаксации</button>
+            
+            <h2 class="page-title">Визуализация</h2>
+            <p class="page-subtitle">Безопасное место</p>
+            
+            <div class="relaxation-card">
+                <div class="card-description" style="margin-bottom: 20px;">
+                    Устройтесь удобно, закройте глаза. Дышите спокойно и естественно.
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Представьте место...</div>
+                    <div class="relaxation-step-text">
+                        Где вы чувствуете себя в полной безопасности и спокойствии.
+                        Это может быть реальное место или полностью вымышленное.
+                        Пляж, лес, горы, уютная комната - всё, что приносит покой.
+                    </div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Что вы видите?</div>
+                    <div class="relaxation-step-text">
+                        Рассмотрите детали: цвета, свет, тени, движения.
+                        Замечайте всё вокруг себя в этом месте.
+                    </div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Что вы слышите?</div>
+                    <div class="relaxation-step-text">
+                        Шум волн, пение птиц, шелест листьев, тишину...
+                        Какие звуки наполняют ваше безопасное место?
+                    </div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Что вы чувствуете?</div>
+                    <div class="relaxation-step-text">
+                        Тепло солнца, прохладу ветра, текстуру поверхностей под руками.
+                        Ощутите комфорт всем телом.
+                    </div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Что вы ощущаете?</div>
+                    <div class="relaxation-step-text">
+                        Запахи: морской бриз, хвою, свежесть, аромат цветов.
+                        Может быть, вкус любимого напитка.
+                    </div>
+                </div>
+                
+                <div class="relaxation-step">
+                    <div class="relaxation-step-title">Побудьте здесь</div>
+                    <div class="relaxation-step-text">
+                        Проведите в этом месте столько времени, сколько нужно.
+                        Запомните это ощущение - вы можете вернуться сюда в любой момент.
+                        Когда будете готовы, медленно откройте глаза.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Быстрая релаксация -->
+        <div id="quickrelax" class="screen">
+            <button class="back-button" onclick="showScreen('relaxationMenu')">← Назад к релаксации</button>
+            
+            <h2 class="page-title">Быстрое снятие напряжения</h2>
+            <p class="page-subtitle">Упражнения на 1-2 минуты</p>
+            
+            <div class="card">
+                <div class="card-title">😌 Для лица и головы</div>
+                <div class="card-description">
+                    • Поднимите брови - расслабьте<br>
+                    • Зажмурьтесь - откройте<br>
+                    • Надуйте щёки - выпустите воздух<br>
+                    • Помассируйте виски круговыми движениями
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">🤷 Для плеч и шеи</div>
+                <div class="card-description">
+                    • Поднимите плечи к ушам - опустите<br>
+                    • Медленные круговые движения плечами<br>
+                    • Наклоны головы вправо-влево<br>
+                    • Повороты головы в стороны
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">✋ Для рук</div>
+                <div class="card-description">
+                    • Сильно сожмите кулаки - разожмите<br>
+                    • Растопырьте пальцы максимально<br>
+                    • Потрясите руками<br>
+                    • Помассируйте запястья
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">🦶 Для ног</div>
+                <div class="card-description">
+                    • Упритесь ногами в пол - расслабьте<br>
+                    • Покатайте стопой карандаш или бутылку<br>
+                    • Потяните носки на себя - от себя<br>
+                    • Сделайте круговые движения стопами
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">💨 Дыхательные</div>
+                <div class="card-description">
+                    • 3 глубоких вдоха-выдоха<br>
+                    • Выдох в 2 раза длиннее вдоха<br>
+                    • Дыхание животом<br>
+                    • Зевните несколько раз (даже специально)
+                </div>
+            </div>
+        </div>
+
+        <!-- Техника заземления -->
+        <div id="grounding" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">НЕ ПАНИКУЮ</h2>
+            
+            <div class="grounding-card">
+                <div class="grounding-title">Техника заземления 5-4-3-2-1</div>
+                <div class="grounding-subtitle">
+                    Помогает быстро справиться с паникой и вернуться в "здесь и сейчас"
+                </div>
+                
+                <div class="technique-step">
+                    <div class="step-header">
+                        <div class="step-number">5</div>
+                        <div class="step-text">
+                            <span class="step-action">ПОСМОТРИТЕ</span> и назовите 5 вещей вокруг вас
+                        </div>
+                    </div>
+                    <div class="step-example">Например: окно, стол, телефон, дверь, лампа</div>
+                </div>
+                
+                <div class="technique-step">
+                    <div class="step-header">
+                        <div class="step-number">4</div>
+                        <div class="step-text">
+                            <span class="step-action">ПОТРОГАЙТЕ</span> 4 разные поверхности
+                        </div>
+                    </div>
+                    <div class="step-example">Например: ткань одежды, край стола, волосы, телефон</div>
+                </div>
+                
+                <div class="technique-step">
+                    <div class="step-header">
+                        <div class="step-number">3</div>
+                        <div class="step-text">
+                            <span class="step-action">ПОСЛУШАЙТЕ</span> и назовите 3 звука
+                        </div>
+                    </div>
+                    <div class="step-example">Например: дыхание, шум улицы, тиканье часов</div>
+                </div>
+                
+                <div class="technique-step">
+                    <div class="step-header">
+                        <div class="step-number">2</div>
+                        <div class="step-text">
+                            <span class="step-action">УЛОВИТЕ</span> 2 запаха вокруг
+                        </div>
+                    </div>
+                    <div class="step-example">Например: кофе, свежий воздух</div>
+                </div>
+                
+                <div class="technique-step">
+                    <div class="step-header">
+                        <div class="step-number">1</div>
+                        <div class="step-text">
+                            <span class="step-action">ПОЧУВСТВУЙТЕ</span> 1 вкус во рту
+                        </div>
+                    </div>
+                    <div class="step-example">Например: мята, кофе или просто вкус слюны</div>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-title">💡 Как выполнять:</div>
+                    <div class="info-text">
+                        Делайте медленно и вдумчиво. На каждый пункт тратьте 30-60 секунд. 
+                        Важно полностью сконцентрироваться на ощущениях. 
+                        Это переключит мозг с тревоги на реальность.
+                    </div>
+                </div>
+                
+                <div class="info-block">
+                    <div class="info-title">Используйте при:</div>
+                    <div class="info-text">
+                        • Начале паники<br>
+                        • Накручивании себя<br>
+                        • Ощущении нереальности<br>
+                        • Зацикливании на страхах
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Экран вредных советов -->
+        <div id="advice" class="screen">
+            <button class="back-button" onclick="backToMain()">← Главное меню</button>
+            
+            <h2 class="page-title">Вредные советы</h2>
+            <p class="page-subtitle">от психотерапевта на каждый день</p>
+            
+            <div class="advice-card">
+                <div class="advice-header">
+                    <div id="adviceNumber" class="advice-number">#1247</div>
+                    <div id="todayBadge" class="today-badge" style="display:none">СЕГОДНЯ</div>
+                </div>
+                <div id="adviceText" class="advice-text">
+                    Никогда не спи достаточно,
+                    Лучше скролль до пяти утра.
+                    Сон — для слабых, настоящий невротик
+                    Должен быть всегда без сил.
+                </div>
+            </div>
+            
+            <div class="card">
+                <p style="text-align: center; color: #666; font-size: 14px; line-height: 1.5;">
+                    Ирония: Эти советы показывают, чего НЕ надо делать. 
+                    Если узнали себя — самое время что-то менять.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Массив вредных советов
+        const advices = [
+            { id: 1247, text: 'Никогда не спи достаточно,\nЛучше скролль до пяти утра.\nСон — для слабых, настоящий невротик\nДолжен быть всегда без сил.' },
+            { id: 3892, text: 'Обязательно сравнивай\nСебя с людьми из инстаграма.\nИх успехи — твои провалы,\nНе забудь об этом ни на миг.' },
+            { id: 5614, text: 'Копи обиды как сокровища,\nВспоминай их каждый вечер.\nЧто сказал сосед в девяностом —\nЭто важно не забыть.' },
+            { id: 7283, text: 'Если злишься — держи в себе,\nУлыбайся через силу.\nПусть внутри всё закипает —\nЭто очень хорошо для язвы.' },
+            { id: 2156, text: 'Планируй жизнь на сорок лет вперёд,\nРасписание по минутам.\nСпонтанность — признак незрелости,\nКонтроль важнее радости.' },
+            { id: 9407, text: 'Говори всегда «я в порядке»,\nДаже если это ложь.\nЧувства прятать — вот искусство,\nМаска — лучший твой наряд.' },
+            { id: 4721, text: 'Принимай всё близко к сердцу,\nКаждый взгляд и каждый жест.\nНаверняка все против тебя,\nПаранойя — друг надёжный.' },
+            { id: 8135, text: 'Никогда не проси помощи,\nСправляйся всегда сам.\nНезависимость — это когда\nТонешь молча и с достоинством.' },
+            { id: 6549, text: 'Жалей себя почаще,\nЭто очень продуктивно.\nВместо действий — сто причин,\nПочему тебе так плохо.' },
+            { id: 3208, text: 'Откладывай важные дела\nДо последнего момента.\nСтресс дедлайна так полезен\nДля нервной системы.' }
+        ];
+
+        // Данные для медитаций
+        const meditationData = {
+            breathing: {
+                title: 'Сосредоточение на дыхании',
+                prompts: [
+                    'Устройтесь удобно. Закройте глаза или смягчите взгляд.',
+                    'Обратите внимание на своё дыхание. Не пытайтесь его изменить.',
+                    'Просто наблюдайте, как воздух входит и выходит.',
+                    'Когда заметите, что отвлеклись - мягко возвращайте внимание к дыханию.',
+                    'Нет правильного или неправильного способа дышать.',
+                    'Если мысли уводят вас - это нормально. Просто возвращайтесь к дыханию.',
+                    'Почувствуйте движение воздуха в носу или животе.',
+                    'Продолжайте спокойно наблюдать за дыханием.',
+                    'Скоро практика завершится. Просто будьте здесь и сейчас.',
+                    'Последние моменты. Поблагодарите себя за эту практику.'
+                ]
+            },
+            bodyscan: {
+                title: 'Сканирование тела',
+                prompts: [
+                    'Устройтесь удобно. Можно лечь или сесть.',
+                    'Обратите внимание на макушку головы. Какие там ощущения?',
+                    'Переместите внимание на лоб. Расслабьте все мышцы.',
+                    'Почувствуйте глаза, щёки, челюсть. Отпустите напряжение.',
+                    'Осознайте шею и плечи. Позвольте им расслабиться.',
+                    'Обратите внимание на руки от плеч до кончиков пальцев.',
+                    'Почувствуйте грудь и живот. Дыхание движет вашим телом.',
+                    'Осознайте спину, от лопаток до поясницы.',
+                    'Обратите внимание на бёдра, колени, голени.',
+                    'Почувствуйте стопы и пальцы ног. Осознайте всё тело целиком.',
+                    'Останьтесь в этом спокойном состоянии.',
+                    'Медленно начните двигать пальцами рук и ног.',
+                    'Когда будете готовы, мягко откройте глаза.'
+                ]
+            },
+            lovingkindness: {
+                title: 'Любящая доброта',
+                prompts: [
+                    'Устройтесь удобно. Положите руку на сердце.',
+                    'Подумайте о себе с добротой. Вы достойны заботы.',
+                    'Про себя скажите: "Пусть я буду счастлив"',
+                    '"Пусть я буду здоров"',
+                    '"Пусть я буду в безопасности"',
+                    '"Пусть я живу с лёгкостью"',
+                    'Теперь подумайте о близком человеке.',
+                    'Пожелайте ему: "Пусть ты будешь счастлив"',
+                    '"Пусть ты будешь здоров и в безопасности"',
+                    'Расширьте это чувство на всех людей вокруг.',
+                    'Пожелайте благополучия всем живым существам.',
+                    'Почувствуйте тепло в области сердца.',
+                    'Побудьте с этим чувством доброты.'
+                ]
+            }
+        };
+
+        // Глобальные переменные
+        let currentBreathingMode = null;
+        let breathingInterval = null;
+        let breathingTimeout = null;
+        let cycles = 0;
+        let totalTime = 0;
+        let timeInterval = null;
+
+        // Переменные для медитации
+        let meditationInterval = null;
+        let meditationTimeLeft = 0;
+        let currentMeditationType = null;
+        let currentPromptIndex = 0;
+        let isPaused = false;
+        let promptInterval = null;
+
+        // Функция показа экрана
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+            
+            if (screenId === 'advice') {
+                showDailyAdvice();
+            }
+            
+            if (screenId !== 'breathing478' && screenId !== 'breathing4812') {
+                stopBreathing();
+            }
+            
+            if (screenId !== 'meditationScreen') {
+                stopMeditation();
+            }
+        }
+
+        // Функция возврата в главное меню
+        function backToMain() {
+            stopBreathing();
+            stopMeditation();
+            showScreen('mainMenu');
+        }
+
+        // Показ совета дня
+        function showDailyAdvice() {
+            const today = new Date();
+            const dayOfYear = Math.floor((today - new Date(today.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
+            const adviceIndex = dayOfYear % advices.length;
+            const advice = advices[adviceIndex];
+            
+            document.getElementById('adviceNumber').textContent = '#' + advice.id;
+            document.getElementById('adviceText').textContent = advice.text;
+            document.getElementById('todayBadge').style.display = 'block';
+        }
+
+        // Форматирование времени
+        function formatTime(seconds) {
+            const mins = Math.floor(seconds / 60);
+            const secs = seconds % 60;
+            return `${mins}:${secs.toString().padStart(2, '0')}`;
+        }
+
+        // Дыхание 4-7-8
+        function startBreathing478() {
+            if (currentBreathingMode) {
+                stopBreathing();
+            }
+            
+            currentBreathingMode = '478';
+            cycles = 0;
+            totalTime = 0;
+            startBreathing(4, 7, 8);
+            
+            document.getElementById('startBtn478').style.display = 'none';
+            document.getElementById('stopBtn478').style.display = 'block';
+            
+            timeInterval = setInterval(() => {
+                totalTime++;
+                document.getElementById('time478').textContent = formatTime(totalTime);
+            }, 1000);
+        }
+
+        // Дыхание 4-8-12
+        function startBreathing4812() {
+            if (currentBreathingMode) {
+                stopBreathing();
+            }
+            
+            currentBreathingMode = '4812';
+            cycles = 0;
+            totalTime = 0;
+            startBreathing(4, 8, 12);
+            
+            document.getElementById('startBtn4812').style.display = 'none';
+            document.getElementById('stopBtn4812').style.display = 'block';
+            
+            timeInterval = setInterval(() => {
+                totalTime++;
+                document.getElementById('time4812').textContent = formatTime(totalTime);
+            }, 1000);
+        }
+
+        // Основная функция дыхания
+        function startBreathing(inhale, hold, exhale) {
+            const circle = currentBreathingMode === '478' ? 
+                document.getElementById('breathingCircle478') : 
+                document.getElementById('breathingCircle4812');
+            
+            const cyclesElement = currentBreathingMode === '478' ? 
+                document.getElementById('cycles478') : 
+                document.getElementById('cycles4812');
+            
+            breathingCycle();
+            
+            function breathingCycle() {
+                updateCircle(circle, 'Вдох', 'через нос', inhale);
+                animateCircle(circle, inhale, 1.15);
+                
+                breathingTimeout = setTimeout(() => {
+                    updateCircle(circle, 'Задержка', 'спокойно', hold);
+                    
+                    breathingTimeout = setTimeout(() => {
+                        updateCircle(circle, 'Выдох', 'через рот', exhale);
+                        animateCircle(circle, exhale, 0.85);
+                        
+                        breathingTimeout = setTimeout(() => {
+                            cycles++;
+                            cyclesElement.textContent = cycles;
+                            breathingCycle();
+                        }, exhale * 1000);
+                    }, hold * 1000);
+                }, inhale * 1000);
+            }
+        }
+
+        // Обновление круга
+        function updateCircle(circle, phase, subtext, duration) {
+            if (!circle) return;
+            
+            const phaseText = circle.querySelector('.phase-text');
+            const phaseSubtext = circle.querySelector('.phase-subtext');
+            const countdown = circle.querySelector('.countdown');
+            
+            if (!phaseText || !phaseSubtext || !countdown) return;
+            
+            phaseText.textContent = phase;
+            phaseSubtext.textContent = subtext;
+            
+            clearInterval(breathingInterval);
+            
+            if (duration > 0) {
+                let timeLeft = duration;
+                countdown.textContent = timeLeft;
+                
+                breathingInterval = setInterval(() => {
+                    timeLeft--;
+                    countdown.textContent = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(breathingInterval);
+                    }
+                }, 1000);
+            } else {
+                countdown.textContent = '—';
+            }
+        }
+
+        // Анимация круга
+        function animateCircle(circle, duration, scale) {
+            circle.style.transition = `transform ${duration}s ease-in-out`;
+            circle.style.transform = `scale(${scale})`;
+        }
+
+        // Остановка дыхания
+        function stopBreathing() {
+            if (breathingInterval) {
+                clearInterval(breathingInterval);
+            }
+            if (breathingTimeout) {
+                clearTimeout(breathingTimeout);
+            }
+            if (timeInterval) {
+                clearInterval(timeInterval);
+            }
+            
+            const circle478 = document.getElementById('breathingCircle478');
+            if (circle478) {
+                circle478.style.transform = 'scale(1)';
+                updateCircle(circle478, 'Готовность', 'начните когда готовы', 0);
+            }
+            const startBtn478 = document.getElementById('startBtn478');
+            const stopBtn478 = document.getElementById('stopBtn478');
+            if (startBtn478) startBtn478.style.display = 'block';
+            if (stopBtn478) stopBtn478.style.display = 'none';
+            
+            const circle4812 = document.getElementById('breathingCircle4812');
+            if (circle4812) {
+                circle4812.style.transform = 'scale(1)';
+                updateCircle(circle4812, 'Готовность', 'начните когда готовы', 0);
+            }
+            const startBtn4812 = document.getElementById('startBtn4812');
+            const stopBtn4812 = document.getElementById('stopBtn4812');
+            if (startBtn4812) startBtn4812.style.display = 'block';
+            if (stopBtn4812) stopBtn4812.style.display = 'none';
+            
+            currentBreathingMode = null;
+        }
+
+        // МЕДИТАЦИЯ
+        function startMeditation(type, duration) {
+            if (meditationInterval) {
+                clearInterval(meditationInterval);
+            }
+            if (promptInterval) {
+                clearInterval(promptInterval);
+            }
+            
+            currentMeditationType = type;
+            meditationTimeLeft = duration * 60;
+            currentPromptIndex = 0;
+            isPaused = false;
+            
+            const data = meditationData[type];
+            document.getElementById('meditationTitle').textContent = data.title;
+            document.getElementById('meditationPrompt').textContent = data.prompts[0];
+            document.getElementById('meditationTimer').textContent = formatTime(meditationTimeLeft);
+            
+            showScreen('meditationScreen');
+            
+            meditationInterval = setInterval(() => {
+                if (!isPaused) {
+                    meditationTimeLeft--;
+                    document.getElementById('meditationTimer').textContent = formatTime(meditationTimeLeft);
+                    
+                    if (meditationTimeLeft <= 0) {
+                        stopMeditation();
+                        alert('Медитация завершена! 🙏');
+                    }
+                }
+            }, 1000);
+            
+            const promptDuration = (duration * 60) / data.prompts.length;
+            let promptTime = promptDuration;
+            
+            promptInterval = setInterval(() => {
+                if (!isPaused) {
+                    promptTime--;
+                    if (promptTime <= 0 && currentPromptIndex < data.prompts.length - 1) {
+                        currentPromptIndex++;
+                        document.getElementById('meditationPrompt').textContent = data.prompts[currentPromptIndex];
+                        promptTime = promptDuration;
+                    }
+                }
+            }, 1000);
+        }
+
+        function togglePause() {
+            isPaused = !isPaused;
+            const btn = document.getElementById('pauseBtn');
+            if (isPaused) {
+                btn.textContent = 'ПРОДОЛЖИТЬ';
+                btn.classList.remove('pause');
+                btn.classList.add('resume');
+            } else {
+                btn.textContent = 'ПАУЗА';
+                btn.classList.remove('resume');
+                btn.classList.add('pause');
+            }
+        }
+
+        function stopMeditation() {
+            if (meditationInterval) {
+                clearInterval(meditationInterval);
+            }
+            if (promptInterval) {
+                clearInterval(promptInterval);
+            }
+            isPaused = false;
+            currentMeditationType = null;
+            meditationInterval = null;
+            promptInterval = null;
+            
+            const btn = document.getElementById('pauseBtn');
+            if (btn) {
+                btn.textContent = 'ПАУЗА';
+                btn.classList.remove('resume');
+                btn.classList.add('pause');
+            }
+            
+            const meditationScreen = document.getElementById('meditationScreen');
+            if (meditationScreen && meditationScreen.classList.contains('active')) {
+                showScreen('meditationMenu');
+            }
+        }
+    </script>
+</body>
+</html>
