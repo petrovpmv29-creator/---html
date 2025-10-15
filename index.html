@@ -4,7 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Доктор Петров - Техники самопомощи</title>
+
+    <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon-180.png">
+
     <style>
+        @font-face {
+            font-family: 'Humanist';
+            src: url('Humanist.woff2') format('woff2'),
+                 url('Humanist.woff') format('woff'),
+                 url('Humanist.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+        
+        @font-face {
+            font-family: 'Humanist';
+            src: url('Humanist-Bold.woff2') format('woff2'),
+                 url('Humanist-Bold.woff') format('woff'),
+                 url('Humanist-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -12,7 +37,7 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Humanist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             background: linear-gradient(135deg, #5fa3d0 0%, #7bc4dd 25%, #87ceeb 50%, #a8dff0 75%, #b8e6f5 100%);
             background-size: 400% 400%;
             animation: oceanGradient 15s ease infinite;
@@ -93,11 +118,13 @@
             z-index: 10;
             box-shadow: 0 8px 32px rgba(72, 209, 204, 0.35);
             animation: float 3s ease-in-out infinite;
-            font-size: 24px;
-            font-weight: bold;
-            color: #2E8B9E;
-            text-align: center;
-            line-height: 1.2;
+            overflow: hidden;
+        }
+        
+        .logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
         
         @keyframes float {
@@ -276,15 +303,28 @@
                 0 10px 30px rgba(72, 209, 204, 0.4),
                 0 0 60px rgba(72, 209, 204, 0.2),
                 inset 0 0 20px rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
             border: 3px solid rgba(255, 255, 255, 0.5);
             position: relative;
-            animation: pulse 2s ease-in-out infinite;
+            will-change: transform;
         }
         
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(72, 209, 204, 0.4), 0 0 60px rgba(72, 209, 204, 0.2), inset 0 0 20px rgba(255, 255, 255, 0.1); }
-            50% { box-shadow: 0 10px 40px rgba(72, 209, 204, 0.6), 0 0 80px rgba(72, 209, 204, 0.3), inset 0 0 30px rgba(255, 255, 255, 0.2); }
+        .breathing-circle.breathing {
+            animation: gentlePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes gentlePulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 10px 30px rgba(72, 209, 204, 0.4),
+                    0 0 60px rgba(72, 209, 204, 0.2),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 10px 40px rgba(72, 209, 204, 0.6),
+                    0 0 80px rgba(72, 209, 204, 0.3),
+                    inset 0 0 30px rgba(255, 255, 255, 0.2);
+            }
         }
         
         @keyframes phaseChange {
@@ -829,7 +869,7 @@
                 inset 0 0 20px rgba(255, 255, 255, 0.1);
             margin: 40px auto;
             border: 3px solid rgba(255, 255, 255, 0.5);
-            animation: pulse 2s ease-in-out infinite;
+            animation: gentlePulse 2s ease-in-out infinite;
         }
         
         #meditationScreen .meditation-circle.phase-changing {
@@ -842,6 +882,22 @@
                 0 10px 30px rgba(255, 107, 157, 0.4),
                 0 0 60px rgba(255, 107, 157, 0.2),
                 inset 0 0 20px rgba(255, 255, 255, 0.1);
+            animation: relaxationPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes relaxationPulse {
+            0%, 100% { 
+                box-shadow: 
+                    0 10px 30px rgba(255, 107, 157, 0.4),
+                    0 0 60px rgba(255, 107, 157, 0.2),
+                    inset 0 0 20px rgba(255, 255, 255, 0.1);
+            }
+            50% { 
+                box-shadow: 
+                    0 10px 40px rgba(255, 107, 157, 0.6),
+                    0 0 80px rgba(255, 107, 157, 0.3),
+                    inset 0 0 30px rgba(255, 255, 255, 0.2);
+            }
         }
         
         #relaxationScreen .meditation-circle.phase-changing {
@@ -900,7 +956,9 @@
             
             <div class="header">
                 <div class="logo-container">
-                    <div class="logo">д-р<br>Петров</div>
+                    <div class="logo">
+                        <img src="logo.png" alt="Логотип д-р Петров">
+                    </div>
                 </div>
                 <h1 class="main-title">д-р Петров</h1>
                 <p class="subtitle">врач-психотерапевт</p>
@@ -1137,6 +1195,7 @@
             <button class="back-button" onclick="stopMeditation()">← Завершить</button>
             
             <h2 id="meditationTitle" class="page-title">Медитация</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); font-size: 12px; margin-bottom: 20px;">подсказки меняются каждые 30 секунд</p>
             
             <div class="meditation-circle">
                 <div class="meditation-timer" id="meditationTimer">5:00</div>
@@ -1182,6 +1241,7 @@
             <button class="back-button" onclick="stopRelaxation()">← Завершить</button>
             
             <h2 id="relaxationTitle" class="page-title">Релаксация</h2>
+            <p style="text-align: center; color: rgba(255,255,255,0.7); font-size: 12px; margin-bottom: 20px;">подсказки меняются каждые 30 секунд</p>
             
             <div class="meditation-circle">
                 <div class="meditation-timer" id="relaxationTimer">10:00</div>
@@ -1281,10 +1341,10 @@
         function formatTime(s){const m=Math.floor(s/60),sec=s%60;return `${m}:${sec.toString().padStart(2,'0')}`;}
         function startBreathing478(){if(currentBreathingMode)stopBreathing();currentBreathingMode='478';cycles=0;totalTime=0;startBreathing(4,7,8);document.getElementById('startBtn478').style.display='none';document.getElementById('stopBtn478').style.display='block';timeInterval=setInterval(()=>{totalTime++;document.getElementById('time478').textContent=formatTime(totalTime);},1000);}
         function startBreathing4812(){if(currentBreathingMode)stopBreathing();currentBreathingMode='4812';cycles=0;totalTime=0;startBreathing(4,8,12);document.getElementById('startBtn4812').style.display='none';document.getElementById('stopBtn4812').style.display='block';timeInterval=setInterval(()=>{totalTime++;document.getElementById('time4812').textContent=formatTime(totalTime);},1000);}
-        function startBreathing(i,h,e){const c=currentBreathingMode==='478'?document.getElementById('breathingCircle478'):document.getElementById('breathingCircle4812');const cy=currentBreathingMode==='478'?document.getElementById('cycles478'):document.getElementById('cycles4812');breathingCycle();function breathingCycle(){updateCircle(c,'Вдох','через нос',i);animateCircle(c,i,1.15);breathingTimeout=setTimeout(()=>{updateCircle(c,'Задержка','спокойно',h);breathingTimeout=setTimeout(()=>{updateCircle(c,'Выдох','через рот',e);animateCircle(c,e,0.85);breathingTimeout=setTimeout(()=>{cycles++;cy.textContent=cycles;breathingCycle();},e*1000);},h*1000);},i*1000);}}
+        function startBreathing(i,h,e){const c=currentBreathingMode==='478'?document.getElementById('breathingCircle478'):document.getElementById('breathingCircle4812');const cy=currentBreathingMode==='478'?document.getElementById('cycles478'):document.getElementById('cycles4812');c.classList.add('breathing');breathingCycle();function breathingCycle(){updateCircle(c,'Вдох','через нос',i);animateCircle(c,i,1.2);breathingTimeout=setTimeout(()=>{updateCircle(c,'Задержка','спокойно',h);animateCircle(c,h,1.2);breathingTimeout=setTimeout(()=>{updateCircle(c,'Выдох','через рот',e);animateCircle(c,e,0.85);breathingTimeout=setTimeout(()=>{cycles++;cy.textContent=cycles;breathingCycle();},e*1000);},h*1000);},i*1000);}}
         function updateCircle(c,p,s,d){if(!c)return;const pt=c.querySelector('.phase-text'),ps=c.querySelector('.phase-subtext'),cd=c.querySelector('.countdown');if(!pt||!ps||!cd)return;pt.textContent=p;ps.textContent=s;if(p!=='Готовность'){c.classList.add('phase-changing');setTimeout(()=>c.classList.remove('phase-changing'),400);if('vibrate'in navigator)navigator.vibrate(150);}clearInterval(breathingInterval);if(d>0){let t=d;cd.textContent=t;breathingInterval=setInterval(()=>{t--;cd.textContent=t;if(t<=0)clearInterval(breathingInterval);},1000);}else cd.textContent='—';}
         function animateCircle(c,d,s){c.style.transition=`transform ${d}s ease-in-out`;c.style.transform=`scale(${s})`;}
-        function stopBreathing(){if(breathingInterval)clearInterval(breathingInterval);if(breathingTimeout)clearTimeout(breathingTimeout);if(timeInterval)clearInterval(timeInterval);const c478=document.getElementById('breathingCircle478');if(c478){c478.style.transform='scale(1)';updateCircle(c478,'Готовность','начните когда готовы',0);}const sb478=document.getElementById('startBtn478'),stb478=document.getElementById('stopBtn478');if(sb478)sb478.style.display='block';if(stb478)stb478.style.display='none';const c4812=document.getElementById('breathingCircle4812');if(c4812){c4812.style.transform='scale(1)';updateCircle(c4812,'Готовность','начните когда готовы',0);}const sb4812=document.getElementById('startBtn4812'),stb4812=document.getElementById('stopBtn4812');if(sb4812)sb4812.style.display='block';if(stb4812)stb4812.style.display='none';currentBreathingMode=null;}
+        function stopBreathing(){if(breathingInterval)clearInterval(breathingInterval);if(breathingTimeout)clearTimeout(breathingTimeout);if(timeInterval)clearInterval(timeInterval);const c478=document.getElementById('breathingCircle478');if(c478){c478.classList.remove('breathing');c478.style.transform='scale(1)';updateCircle(c478,'Готовность','начните когда готовы',0);}const sb478=document.getElementById('startBtn478'),stb478=document.getElementById('stopBtn478');if(sb478)sb478.style.display='block';if(stb478)stb478.style.display='none';const c4812=document.getElementById('breathingCircle4812');if(c4812){c4812.classList.remove('breathing');c4812.style.transform='scale(1)';updateCircle(c4812,'Готовность','начните когда готовы',0);}const sb4812=document.getElementById('startBtn4812'),stb4812=document.getElementById('stopBtn4812');if(sb4812)sb4812.style.display='block';if(stb4812)stb4812.style.display='none';currentBreathingMode=null;}
         function startMeditation(t,d){if(meditationInterval)clearInterval(meditationInterval);if(promptInterval)clearInterval(promptInterval);currentMeditationType=t;meditationTimeLeft=d*60;currentPromptIndex=0;isPaused=false;const data=meditationData[t];document.getElementById('meditationTitle').textContent=data.title;document.getElementById('meditationPrompt').textContent=data.prompts[0];document.getElementById('meditationTimer').textContent=formatTime(meditationTimeLeft);showScreen('meditationScreen');meditationInterval=setInterval(()=>{if(!isPaused){meditationTimeLeft--;document.getElementById('meditationTimer').textContent=formatTime(meditationTimeLeft);if(meditationTimeLeft<=0){stopMeditation();alert('Медитация завершена! 🙏');}}},1000);const pd=30;let pt=pd;promptInterval=setInterval(()=>{if(!isPaused){pt--;if(pt<=0&&currentPromptIndex<data.prompts.length-1){currentPromptIndex++;const pe=document.getElementById('meditationPrompt');const pc=pe.parentElement;pc.classList.add('flash');setTimeout(()=>pc.classList.remove('flash'),500);const ci=document.querySelector('#meditationScreen .meditation-circle');if(ci){ci.classList.add('phase-changing');setTimeout(()=>ci.classList.remove('phase-changing'),400);}pe.textContent=data.prompts[currentPromptIndex];pt=pd;if('vibrate'in navigator)navigator.vibrate(200);}}},1000);}
         function togglePause(){isPaused=!isPaused;const b=document.getElementById('pauseBtn');if(isPaused){b.textContent='ПРОДОЛЖИТЬ';b.classList.remove('pause');b.classList.add('resume');}else{b.textContent='ПАУЗА';b.classList.remove('resume');b.classList.add('pause');}}
         function stopMeditation(){if(meditationInterval)clearInterval(meditationInterval);if(promptInterval)clearInterval(promptInterval);isPaused=false;currentMeditationType=null;meditationInterval=null;promptInterval=null;const b=document.getElementById('pauseBtn');if(b){b.textContent='ПАУЗА';b.classList.remove('resume');b.classList.add('pause');}const ms=document.getElementById('meditationScreen');if(ms&&ms.classList.contains('active'))showScreen('meditationMenu');}
