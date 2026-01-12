@@ -177,18 +177,20 @@
             color: #5FA3D0;
             letter-spacing: 1px;
         }
-
-        .menu-button.special {
-            background: linear-gradient(135deg, rgba(30, 30, 30, 0.9), rgba(50, 50, 50, 0.85));
-            border: 2px solid rgba(255, 107, 107, 0.4);
+        
+        .menu-button.panic-button {
+            background: linear-gradient(135deg, rgba(255, 87, 87, 0.15), rgba(255, 107, 107, 0.15));
+            border: 3px solid rgba(255, 87, 87, 0.6);
+            box-shadow: 0 6px 20px rgba(255, 87, 87, 0.25);
         }
-
-        .menu-button.special .menu-button-title {
+        
+        .menu-button.panic-button .menu-button-title {
+            color: #FF5757;
+            font-size: 20px;
+        }
+        
+        .menu-button.panic-button .menu-button-subtitle {
             color: #FF6B6B;
-        }
-
-        .menu-button.special .menu-button-subtitle {
-            color: rgba(255, 255, 255, 0.7);
         }
 
         .back-button {
@@ -225,11 +227,13 @@
             align-items: center;
             color: white;
             box-shadow: 
+                0 0 0 1px rgba(30, 144, 255, 0.4),
+                0 0 0 2px rgba(255, 255, 255, 0.3),
+                0 0 0 3px rgba(72, 209, 204, 0.3),
                 0 0 30px rgba(30, 144, 255, 0.6),
                 0 0 60px rgba(72, 209, 204, 0.4),
                 0 0 90px rgba(255, 255, 255, 0.3),
                 inset 0 0 30px rgba(255, 255, 255, 0.35);
-            border: 3px solid rgba(255, 255, 255, 0.7);
             margin: 40px auto;
             animation: gradientRotate 8s ease infinite, waveShape 6s ease-in-out infinite;
         }
@@ -293,12 +297,14 @@
             align-items: center;
             color: white;
             box-shadow: 
+                0 0 0 1px rgba(32, 178, 170, 0.4),
+                0 0 0 2px rgba(255, 255, 255, 0.3),
+                0 0 0 3px rgba(64, 224, 208, 0.3),
                 0 0 40px rgba(72, 209, 204, 0.7),
                 0 0 80px rgba(64, 224, 208, 0.5),
                 0 0 120px rgba(127, 255, 212, 0.3),
                 0 0 150px rgba(255, 255, 255, 0.2),
                 inset 0 0 40px rgba(255, 255, 255, 0.35);
-            border: 3px solid rgba(255, 255, 255, 0.8);
             margin: 40px auto;
             animation: meditationPulse 4s ease-in-out infinite, turquoiseFlow 10s ease infinite, waveShapeMed 7s ease-in-out infinite;
         }
@@ -319,6 +325,9 @@
             0%, 100% { 
                 transform: scale(1);
                 box-shadow: 
+                    0 0 0 1px rgba(32, 178, 170, 0.4),
+                    0 0 0 2px rgba(255, 255, 255, 0.3),
+                    0 0 0 3px rgba(64, 224, 208, 0.3),
                     0 0 40px rgba(72, 209, 204, 0.7),
                     0 0 80px rgba(64, 224, 208, 0.5),
                     0 0 120px rgba(127, 255, 212, 0.3),
@@ -328,6 +337,9 @@
             50% { 
                 transform: scale(1.08);
                 box-shadow: 
+                    0 0 0 1px rgba(32, 178, 170, 0.6),
+                    0 0 0 2px rgba(255, 255, 255, 0.5),
+                    0 0 0 3px rgba(64, 224, 208, 0.5),
                     0 0 50px rgba(72, 209, 204, 0.9),
                     0 0 100px rgba(64, 224, 208, 0.7),
                     0 0 150px rgba(127, 255, 212, 0.5),
@@ -354,12 +366,14 @@
             align-items: center;
             color: white;
             box-shadow: 
+                0 0 0 1px rgba(74, 144, 164, 0.4),
+                0 0 0 2px rgba(255, 255, 255, 0.3),
+                0 0 0 3px rgba(135, 206, 235, 0.3),
                 0 0 40px rgba(74, 144, 164, 0.7),
                 0 0 80px rgba(95, 163, 208, 0.5),
                 0 0 120px rgba(135, 206, 235, 0.4),
                 0 0 160px rgba(255, 255, 255, 0.3),
                 inset 0 0 40px rgba(255, 255, 255, 0.4);
-            border: 3px solid rgba(255, 255, 255, 0.8);
             margin: 40px auto;
             animation: relaxationPulse 4s ease-in-out infinite, oceanFlow 10s ease infinite, waveShapeRelax 8s ease-in-out infinite;
         }
@@ -383,6 +397,9 @@
             0%, 100% { 
                 transform: scale(1);
                 box-shadow: 
+                    0 0 0 1px rgba(74, 144, 164, 0.4),
+                    0 0 0 2px rgba(255, 255, 255, 0.3),
+                    0 0 0 3px rgba(135, 206, 235, 0.3),
                     0 0 40px rgba(74, 144, 164, 0.7),
                     0 0 80px rgba(95, 163, 208, 0.5),
                     0 0 120px rgba(135, 206, 235, 0.4),
@@ -392,6 +409,9 @@
             50% { 
                 transform: scale(1.08);
                 box-shadow: 
+                    0 0 0 1px rgba(74, 144, 164, 0.6),
+                    0 0 0 2px rgba(255, 255, 255, 0.5),
+                    0 0 0 3px rgba(135, 206, 235, 0.5),
                     0 0 50px rgba(74, 144, 164, 0.9),
                     0 0 100px rgba(95, 163, 208, 0.7),
                     0 0 150px rgba(135, 206, 235, 0.6),
@@ -582,50 +602,6 @@
             text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .advice-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 24px;
-            margin: 20px 0;
-            border: 3px solid rgba(255, 107, 107, 0.5);
-            box-shadow: 0 8px 20px rgba(255, 107, 107, 0.25);
-        }
-
-        .advice-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-        }
-
-        .advice-number {
-            font-size: 16px;
-            font-weight: bold;
-            color: #FF6B6B;
-            letter-spacing: 1px;
-        }
-
-        .today-badge {
-            background: linear-gradient(135deg, #FF6B6B, #FF8E8E);
-            padding: 4px 12px;
-            border-radius: 12px;
-            color: white;
-            font-size: 11px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            box-shadow: 0 2px 8px rgba(255, 107, 107, 0.3);
-        }
-
-        .advice-text {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #333;
-            white-space: pre-line;
-        }
-
         .grounding-card {
             background: linear-gradient(135deg, #2a5298, #3d7ea6);
             color: white;
@@ -799,6 +775,267 @@
         .install-prompt-button:active {
             transform: scale(0.95);
         }
+        
+        /* ТЕСТ ЛИЧНОСТИ - СТИЛИ */
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .test-card-animate {
+            animation: slideIn 0.3s ease-out;
+        }
+        
+        .test-question-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 255, 0.95));
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 0 5px 15px rgba(138, 43, 226, 0.15);
+        }
+        
+        .test-progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .test-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B2BE2, #9370DB);
+            transition: width 0.5s ease;
+        }
+        
+        .test-progress-text {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+        
+        .test-question-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #8B2BE2;
+            color: white;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .test-question-text {
+            font-size: 18px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .test-answer-button {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            color: #555;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .test-answer-button:hover {
+            border-color: #8B2BE2;
+            background: rgba(138, 43, 226, 0.05);
+        }
+        
+        .test-answer-button.selected {
+            background: #8B2BE2;
+            border-color: #8B2BE2;
+            color: white;
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+        }
+        
+        .test-nav-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .test-nav-button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 12px;
+            border: none;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .test-nav-button.back {
+            background: rgba(255, 255, 255, 0.5);
+            color: #666;
+        }
+        
+        .test-nav-button.next {
+            background: #8B2BE2;
+            color: white;
+        }
+        
+        .test-nav-button:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .test-results-container {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+            border-radius: 20px;
+            padding: 20px;
+            margin: 15px 0;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+        }
+        
+        .test-portrait-card {
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.08), rgba(147, 112, 219, 0.08));
+            border-radius: 15px;
+            padding: 15px;
+            margin: 15px 0;
+            border: 2px solid rgba(138, 43, 226, 0.2);
+        }
+        
+        .test-portrait-section {
+            margin: 12px 0;
+        }
+        
+        .test-portrait-title {
+            font-size: 14px;
+            font-weight: bold;
+            color: #8B2BE2;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .test-portrait-text {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.5;
+        }
+        
+        .test-mbti-badge {
+            font-size: 40px;
+            font-weight: bold;
+            color: #8B2BE2;
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .test-mbti-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #8B2BE2;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+        
+        .test-mbti-desc {
+            font-size: 13px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+        
+        .test-trait-bar {
+            margin: 12px 0;
+        }
+        
+        .test-trait-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+            font-size: 12px;
+        }
+        
+        .test-trait-name {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .test-trait-percent {
+            font-weight: bold;
+            color: #8B2BE2;
+        }
+        
+        .test-trait-progress {
+            width: 100%;
+            height: 18px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .test-trait-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B2BE2, #9370DB);
+            transition: width 1s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .test-trait-label {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 10px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .test-restart-button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #8B2BE2, #9370DB);
+            border: none;
+            border-radius: 15px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .test-restart-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(138, 43, 226, 0.3);
+        }
+        
+        .test-section-title {
+            font-size: 16px;
+            font-weight: bold;
+            color: #8B2BE2;
+            margin: 20px 0 12px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
     </style>
 </head>
 <body>
@@ -825,6 +1062,11 @@
                 <span class="menu-button-subtitle" style="color: rgba(255,255,255,0.8);">добавить на главный экран</span>
             </button>
             
+            <button class="menu-button" onclick="showScreen('testMenu')">
+                <span class="menu-button-title">ТЕСТИРУЮ</span>
+                <span class="menu-button-subtitle">тестовые системы</span>
+            </button>
+            
             <button class="menu-button" onclick="showScreen('breathingMenu')">
                 <span class="menu-button-title">ДЫШУ</span>
                 <span class="menu-button-subtitle">техники дыхания</span>
@@ -840,15 +1082,40 @@
                 <span class="menu-button-subtitle">снятие напряжения</span>
             </button>
             
-            <button class="menu-button" onclick="showScreen('grounding')">
+            <button class="menu-button panic-button" onclick="showScreen('grounding')">
                 <span class="menu-button-title">НЕ ПАНИКУЮ</span>
-                <span class="menu-button-subtitle">техника заземления</span>
+                <span class="menu-button-subtitle">техника заземления 5-4-3-2-1</span>
             </button>
+        </div>
+
+        <!-- Меню тестов -->
+        <div id="testMenu" class="screen">
+            <button class="back-button" onclick="showScreen('mainMenu')">← Главное меню</button>
             
-            <button class="menu-button special" onclick="showScreen('advice')">
-                <span class="menu-button-title">ВРЕДНЫЕ СОВЕТЫ</span>
-                <span class="menu-button-subtitle">от психотерапевта</span>
-            </button>
+            <h2 class="page-title">Тестовые системы</h2>
+            <p class="page-subtitle">Выберите тест для прохождения</p>
+            
+            <div class="card">
+                <div class="card-title">🧠 Комплексный тест личности</div>
+                <div class="card-description">
+                    Глубокий психологический анализ по трём научным системам:<br><br>
+                    • Big Five (5 базовых черт личности)<br>
+                    • MBTI (16 типов личности)<br>
+                    • Леонгард (акцентуации характера)<br><br>
+                    100 вопросов • ~15 минут • Подробный портрет
+                </div>
+                <button class="card-button" onclick="showScreen('personalityTest')">НАЧАТЬ ТЕСТ →</button>
+            </div>
+        </div>
+
+        <!-- ТЕСТ ЛИЧНОСТИ -->
+        <div id="personalityTest" class="screen">
+            <button class="back-button" onclick="handleTestBack()">← Тестовые системы</button>
+            
+            <h2 class="page-title" style="font-size: 24px;">Комплексный тест личности</h2>
+            <p class="page-subtitle" style="font-size: 13px;">100 вопросов • 3 системы</p>
+            
+            <div id="testContent"></div>
         </div>
 
         <!-- Меню дыхания -->
@@ -1051,65 +1318,502 @@
             
             <div class="grounding-card" id="groundingCard"></div>
         </div>
-
-        <!-- Вредные советы -->
-        <div id="advice" class="screen">
-            <button class="back-button" onclick="showScreen('mainMenu')">← Главное меню</button>
-            
-            <h2 class="page-title">Вредные советы</h2>
-            <p class="page-subtitle">от психотерапевта на каждый день</p>
-            
-            <div class="advice-card">
-                <div class="advice-header">
-                    <div id="adviceNumber" class="advice-number">#1247</div>
-                    <div id="todayBadge" class="today-badge">СЕГОДНЯ</div>
-                </div>
-                <div id="adviceText" class="advice-text"></div>
-            </div>
-            
-            <div class="card">
-                <p style="text-align: center; color: #666; font-size: 14px; line-height: 1.5;">
-                    Ирония: Эти советы показывают, чего НЕ надо делать. 
-                    Если узнали себя — самое время что-то менять.
-                </p>
-            </div>
-        </div>
     </div>
 
     <script>
-        const advices = [
-            { id: 1247, text: 'Если чувствуешь тревогу,\nСразу думай о плохом —\nПредставляй катастрофы ярче,\nЧтобы страх совсем добить.' },
-            { id: 3892, text: 'Никогда не спи достаточно,\nЛучше скролль до пяти утра.\nСон — для слабых, настоящий невротик\nДолжен быть всегда без сил.' },
-            { id: 5614, text: 'Обязательно сравнивай\nСебя с людьми из инстаграма.\nИх успехи — твои провалы,\nНе забудь об этом ни на миг.' },
-            { id: 7283, text: 'Копи обиды как сокровища,\nВспоминай их каждый вечер.\nЧто сказал сосед в девяностом —\nЭто важно не забыть.' },
-            { id: 2156, text: 'Если злишься — держи в себе,\nУлыбайся через силу.\nПусть внутри всё закипает —\nЭто очень хорошо для язвы.' },
-            { id: 9407, text: 'Планируй жизнь на сорок лет вперёд,\nРасписание по минутам.\nСпонтанность — признак незрелости,\nКонтроль важнее радости.' },
-            { id: 4721, text: 'Говори всегда «я в порядке»,\nДаже если это ложь.\nЧувства прятать — вот искусство,\nМаска — лучший твой наряд.' },
-            { id: 8135, text: 'Принимай всё близко к сердцу,\nКаждый взгляд и каждый жест.\nНаверняка все против тебя,\nПаранойя — друг надёжный.' },
-            { id: 6549, text: 'Никогда не проси помощи,\nСправляйся всегда сам.\nНезависимость — это когда\nТонешь молча и с достоинством.' },
-            { id: 3208, text: 'Жалей себя почаще,\nЭто очень продуктивно.\nВместо действий — сто причин,\nПочему тебе так плохо.' },
-            { id: 1583, text: 'Откладывай важные дела\nДо последнего момента.\nСтресс дедлайна так полезен\nДля нервной системы.' },
-            { id: 4926, text: 'Ешь эмоции шоколадом,\nЗапивай тоску вином.\nЧувства можно заглушить —\nГлавное, найти чем именно.' },
-            { id: 7641, text: 'Требуй от себя совершенства\nВ каждой мелочи всегда.\nОшибки — это катастрофа,\nПрощать себя нельзя.' },
-            { id: 2394, text: 'Читай все новости подряд,\nОсобенно негативные.\nЧем больше ужасов узнаешь,\nТем лучше спать ночами.' },
-            { id: 5817, text: 'Отношения строй с теми,\nКто тебя не ценит.\nМожет, если постараешься,\nОни тебя полюбят.' },
-            { id: 9152, text: 'Границы — это эгоизм,\nГовори всем только «да».\nВыгорание профессиональное —\nЗнак того, что ты хороший.' },
-            { id: 3467, text: 'Прошлое перебирай почаще,\nДумай, что бы изменил.\nСожаления — отличное хобби,\nОсобенно в три часа ночи.' },
-            { id: 6780, text: 'Диагнозы ставь себе по гуглу,\nСимптомы все запоминай.\nУ тебя наверняка\nВсё самое страшное сразу.' },
-            { id: 8293, text: 'Конфликтов избегай любых,\nСоглашайся против воли.\nВнутренний протест копи,\nПассивная агрессия — твой стиль.' },
-            { id: 1946, text: 'Живи только будущим,\nНастоящее не важно.\nКогда-нибудь потом начнёшь\nРадоваться и быть счастливым.' },
-            { id: 5234, text: 'Чувства анализируй до дыр,\nПочему и отчего.\nПросто чувствовать — примитивно,\nНужно всё разобрать на части.' },
-            { id: 7568, text: 'Советы раздавай всем подряд,\nДаже если не просили.\nТы же знаешь, как им жить,\nТвой опыт универсален.' },
-            { id: 2801, text: 'Вини себя за всё на свете,\nЗа дождь и за войну.\nГиперответственность — признак\nЗрелой личности, конечно.' },
-            { id: 4175, text: 'Медитируй по пять часов,\nЙогой мучай тело.\nДуховность — это когда больно,\nНо ты терпишь ради просветления.' },
-            { id: 9423, text: 'Позитивным будь всегда,\nНегатив гони подальше.\nТоксичная позитивность —\nЛучше честных чувств.' },
-            { id: 6847, text: 'Работай без выходных,\nОтпуск — признак лени.\nПрофессиональное выгорание —\nМедаль за трудолюбие.' },
-            { id: 3529, text: 'Детские травмы не лечи,\nЭто всё придумки.\nПросто забудь и живи дальше,\nВытеснение решает всё.' },
-            { id: 8061, text: 'В отношениях растворись полностью,\nСобственных желаний не имей.\nСозависимость романтична,\nГраницы убивают любовь.' },
-            { id: 1794, text: 'Эмоции считай врагами,\nЛогика — единственный друг.\nЧувствовать — значит быть слабым,\nРобот — идеал человека.' },
-            { id: 5382, text: 'И последний главный совет:\nВсё вышеперечисленное\nПрименяй в жизни активно,\nИ психотерапевт обеспечен работой.' }
+        // ДАННЫЕ ТЕСТА
+        const testQuestions = [
+            // 1-10
+            { text: "Я - душа компании", type: "bigfive", trait: "extraversion", reversed: false },
+            { text: "Мне нравится планировать заранее", type: "mbti", dimension: "JP", pole: "J" },
+            { text: "Вы обычно центр внимания в компании", type: "leonhard", scale: "demonstrative" },
+            { text: "Я интересуюсь проблемами других людей", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Я фокусируюсь на реальных фактах и деталях", type: "mbti", dimension: "SN", pole: "S" },
+            { text: "У Вас чаще весёлое и беззаботное настроение", type: "leonhard", scale: "hyperthymic" },
+            { text: "Я всегда готов к делам", type: "bigfive", trait: "conscientiousness", reversed: false },
+            { text: "Я получаю энергию от общения с людьми", type: "mbti", dimension: "EI", pole: "E" },
+            { text: "Я легко впадаю в стресс", type: "bigfive", trait: "neuroticism", reversed: false },
+            { text: "Вы чувствительны к оскорблениям", type: "leonhard", scale: "stuck" },
+            
+            // 11-20
+            { text: "У меня богатое воображение", type: "bigfive", trait: "openness", reversed: false },
+            { text: "Я принимаю решения на основе логики", type: "mbti", dimension: "TF", pole: "T" },
+            { text: "Сделав что-то, Вы долго сомневаетесь в правильности", type: "leonhard", scale: "pedantic" },
+            { text: "Я чувствую себя комфортно рядом с людьми", type: "bigfive", trait: "extraversion", reversed: false },
+            { text: "Я предпочитаю работать в команде", type: "mbti", dimension: "EI", pole: "E" },
+            { text: "Бывает, что Вы злы без оснований", type: "leonhard", scale: "excitable" },
+            { text: "Я сочувствую чувствам других", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Я уделяю внимание деталям", type: "bigfive", trait: "conscientiousness", reversed: false },
+            { text: "Вы серьезный человек", type: "leonhard", scale: "dysthymic" },
+            { text: "Я часто переживаю о вещах", type: "bigfive", trait: "neuroticism", reversed: false },
+            
+            // 21-30
+            { text: "Я предпочитаю практический опыт теории", type: "mbti", dimension: "SN", pole: "S" },
+            { text: "У меня отличные идеи", type: "bigfive", trait: "openness", reversed: false },
+            { text: "Вам было страшно в детстве во время грозы", type: "leonhard", scale: "anxious" },
+            { text: "Я легко завожу друзей", type: "bigfive", trait: "extraversion", reversed: false },
+            { text: "Я люблю иметь четкий распорядок дня", type: "mbti", dimension: "JP", pole: "J" },
+            { text: "У меня мягкое сердце", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Вы способны восторгаться, восхищаться", type: "leonhard", scale: "exalted" },
+            { text: "Я довожу дела до конца", type: "bigfive", trait: "conscientiousness", reversed: false },
+            { text: "Правда важнее, чем такт", type: "mbti", dimension: "TF", pole: "T" },
+            { text: "Меня легко обеспокоить", type: "bigfive", trait: "neuroticism", reversed: false },
+            
+            // 31-40
+            { text: "У Вас наворачиваются слезы в кино или театре", type: "leonhard", scale: "emotive" },
+            { text: "Я быстро понимаю вещи", type: "bigfive", trait: "openness", reversed: false },
+            { text: "Мне нравятся большие вечеринки", type: "mbti", dimension: "EI", pole: "E" },
+            { text: "Я молчу среди незнакомцев", type: "bigfive", trait: "extraversion", reversed: true },
+            { text: "У Вас резко меняется настроение", type: "leonhard", scale: "cyclothymic" },
+            { text: "Я трачу время на помощь другим", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Я доверяю проверенным методам", type: "mbti", dimension: "SN", pole: "S" },
+            { text: "Я следую расписанию", type: "bigfive", trait: "conscientiousness", reversed: false },
+            { text: "Вы охотно выступаете на собраниях", type: "leonhard", scale: "demonstrative" },
+            { text: "У меня частые перепады настроения", type: "bigfive", trait: "neuroticism", reversed: false },
+            
+            // 41-50
+            { text: "Я объективен при принятии решений", type: "mbti", dimension: "TF", pole: "T" },
+            { text: "Мне трудно понять абстрактные идеи", type: "bigfive", trait: "openness", reversed: true },
+            { text: "Вы долго переживаете обиду", type: "leonhard", scale: "stuck" },
+            { text: "Я не люблю привлекать внимание к себе", type: "bigfive", trait: "extraversion", reversed: true },
+            { text: "Мне нравится завершать дела до дедлайна", type: "mbti", dimension: "JP", pole: "J" },
+            { text: "Я не интересуюсь проблемами других людей", type: "bigfive", trait: "agreeableness", reversed: true },
+            { text: "Вы предприимчивы", type: "leonhard", scale: "hyperthymic" },
+            { text: "Я оставляю свои вещи в беспорядке", type: "bigfive", trait: "conscientiousness", reversed: true },
+            { text: "Я люблю думать вслух", type: "mbti", dimension: "EI", pole: "E" },
+            { text: "Вы проверяете, упало ли письмо в почтовый ящик", type: "leonhard", scale: "pedantic" },
+            
+            // 51-60
+            { text: "Я расслаблен большую часть времени", type: "bigfive", trait: "neuroticism", reversed: true },
+            { text: "Мне нравится замечать детали", type: "mbti", dimension: "SN", pole: "S" },
+            { text: "У меня нет хорошего воображения", type: "bigfive", trait: "openness", reversed: true },
+            { text: "У Вас часто подавленное настроение", type: "leonhard", scale: "dysthymic" },
+            { text: "Мне трудно завести разговор", type: "bigfive", trait: "extraversion", reversed: true },
+            { text: "Я ценю справедливость выше милосердия", type: "mbti", dimension: "TF", pole: "T" },
+            { text: "Я чувствую эмоции других", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Вы быстро начинаете злиться или впадать в гнев", type: "leonhard", scale: "excitable" },
+            { text: "Я откладываю дела на потом", type: "bigfive", trait: "conscientiousness", reversed: true },
+            { text: "Я предпочитаю структуру и организацию", type: "mbti", dimension: "JP", pole: "J" },
+            
+            // 61-70
+            { text: "Я легко раздражаюсь", type: "bigfive", trait: "neuroticism", reversed: false },
+            { text: "У Вас бывает чувство внутреннего беспокойства", type: "leonhard", scale: "anxious" },
+            { text: "Я полон идей", type: "bigfive", trait: "openness", reversed: false },
+            { text: "Мне нужно время наедине для восстановления сил", type: "mbti", dimension: "EI", pole: "I" },
+            { text: "Я полон энергии", type: "bigfive", trait: "extraversion", reversed: false },
+            { text: "Я учитываю чувства людей при принятии решений", type: "mbti", dimension: "TF", pole: "F" },
+            { text: "Я доверяю людям", type: "bigfive", trait: "agreeableness", reversed: false },
+            { text: "Ощущение счастья буквально пронизывает Вас", type: "leonhard", scale: "exalted" },
+            { text: "Я люблю порядок", type: "bigfive", trait: "conscientiousness", reversed: false },
+            { text: "Я часто думаю о будущих возможностях", type: "mbti", dimension: "SN", pole: "N" },
+            
+            // 71-80
+            { text: "Я спокойный и уравновешенный", type: "bigfive", trait: "neuroticism", reversed: true },
+            { text: "Вы можете быть приветливым даже с тем, кого не уважаете", type: "leonhard", scale: "demonstrative" },
+            { text: "Я люблю искусство и красоту", type: "bigfive", trait: "openness", reversed: false },
+            { text: "Я предпочитаю работать в одиночестве", type: "mbti", dimension: "EI", pole: "I" },
+            { text: "Вы мягкосердечны", type: "leonhard", scale: "emotive" },
+            { text: "Я предпочитаю оставлять варианты открытыми", type: "mbti", dimension: "JP", pole: "P" },
+            { text: "Вы подвижный человек", type: "leonhard", scale: "hyperthymic" },
+            { text: "Мне интересны абстрактные концепции и теории", type: "mbti", dimension: "SN", pole: "N" },
+            { text: "Гармония в отношениях очень важна для меня", type: "mbti", dimension: "TF", pole: "F" },
+            { text: "Вы энергично отстаиваете свои интересы при несправедливости", type: "leonhard", scale: "stuck" },
+            
+            // 81-90
+            { text: "Мне комфортнее в небольшой компании близких друзей", type: "mbti", dimension: "EI", pole: "I" },
+            { text: "Вы стремитесь во всем соблюдать порядок", type: "leonhard", scale: "pedantic" },
+            { text: "Мне нравится спонтанность", type: "mbti", dimension: "JP", pole: "P" },
+            { text: "Вы расцениваете жизнь пессимистически", type: "leonhard", scale: "dysthymic" },
+            { text: "Я обычно думаю, прежде чем говорить", type: "mbti", dimension: "EI", pole: "I" },
+            { text: "Вы можете ударить человека, если он Вас оскорбит", type: "leonhard", scale: "excitable" },
+            { text: "Я полагаюсь на интуицию и предчувствия", type: "mbti", dimension: "SN", pole: "N" },
+            { text: "Вы очень боязливы", type: "leonhard", scale: "anxious" },
+            { text: "Я сочувствую другим, даже если они неправы", type: "mbti", dimension: "TF", pole: "F" },
+            { text: "Вы часто смеетесь", type: "leonhard", scale: "hyperthymic" },
+            
+            // 91-100
+            { text: "Я хорошо адаптируюсь к изменениям", type: "mbti", dimension: "JP", pole: "P" },
+            { text: "Получился бы из Вас ведущий в концерте", type: "leonhard", scale: "demonstrative" },
+            { text: "Вы переживаете долгое время горести других", type: "leonhard", scale: "emotive" },
+            { text: "Вам трудно входить в темный подвал", type: "leonhard", scale: "anxious" },
+            { text: "Я часто делаю дела в последний момент", type: "mbti", dimension: "JP", pole: "P" },
+            { text: "Вы чувствуете себя на седьмом небе без причин", type: "leonhard", scale: "exalted" },
+            { text: "Вы следите, чтобы вещи были на своих местах", type: "leonhard", scale: "pedantic" },
+            { text: "Трагический фильм вызывает у Вас слезы", type: "leonhard", scale: "emotive" },
+            { text: "Ваше настроение зависит от внешних обстоятельств", type: "leonhard", scale: "cyclothymic" },
+            { text: "Вы считаете свое настроение очень изменчивым", type: "leonhard", scale: "cyclothymic" }
         ];
 
+        const mbtiTypes = {
+            INTJ: { name: 'Стратег', desc: 'Независимый мыслитель', prof: ['Ученый', 'Инженер', 'Программист'] },
+            INTP: { name: 'Логик', desc: 'Инновационный изобретатель', prof: ['Математик', 'Философ', 'Программист'] },
+            ENTJ: { name: 'Командир', desc: 'Волевой лидер', prof: ['CEO', 'Предприниматель', 'Менеджер'] },
+            ENTP: { name: 'Полемист', desc: 'Любознательный мыслитель', prof: ['Предприниматель', 'Маркетолог'] },
+            INFJ: { name: 'Активист', desc: 'Идеалист с принципами', prof: ['Психолог', 'Писатель', 'Учитель'] },
+            INFP: { name: 'Посредник', desc: 'Добрый альтруист', prof: ['Писатель', 'Художник', 'Психолог'] },
+            ENFJ: { name: 'Тренер', desc: 'Вдохновляющий лидер', prof: ['Учитель', 'HR', 'Коуч'] },
+            ENFP: { name: 'Борец', desc: 'Креативный энтузиаст', prof: ['Журналист', 'Актер', 'Маркетолог'] },
+            ISTJ: { name: 'Администратор', desc: 'Практичный и ответственный', prof: ['Бухгалтер', 'Аудитор', 'Врач'] },
+            ISFJ: { name: 'Защитник', desc: 'Заботливый защитник', prof: ['Медсестра', 'Учитель', 'Библиотекарь'] },
+            ESTJ: { name: 'Менеджер', desc: 'Отличный администратор', prof: ['Менеджер', 'Судья', 'Директор'] },
+            ESFJ: { name: 'Консул', desc: 'Заботливый, общительный', prof: ['Медсестра', 'Учитель', 'Продавец'] },
+            ISTP: { name: 'Виртуоз', desc: 'Смелый экспериментатор', prof: ['Инженер', 'Механик', 'Хирург'] },
+            ISFP: { name: 'Артист', desc: 'Обаятельный художник', prof: ['Художник', 'Музыкант', 'Дизайнер'] },
+            ESTP: { name: 'Делец', desc: 'Энергичный предприниматель', prof: ['Продавец', 'Детектив', 'Спортсмен'] },
+            ESFP: { name: 'Развлекатель', desc: 'Спонтанный энтузиаст', prof: ['Актер', 'Ведущий', 'Гид'] }
+        };
+
+        const bigFiveTraits = {
+            extraversion: { name: 'Экстраверсия', low: { title: 'Интроверт' }, high: { title: 'Экстраверт' } },
+            agreeableness: { name: 'Доброжелательность', low: { title: 'Скептичный' }, high: { title: 'Доброжелательный' } },
+            conscientiousness: { name: 'Добросовестность', low: { title: 'Спонтанный' }, high: { title: 'Организованный' } },
+            neuroticism: { name: 'Нейротизм', low: { title: 'Стабильный' }, high: { title: 'Чувствительный' } },
+            openness: { name: 'Открытость', low: { title: 'Практичный' }, high: { title: 'Творческий' } }
+        };
+
+        const leonhardData = {
+            demonstrative: { name: 'Демонстративность' },
+            stuck: { name: 'Застревание' },
+            pedantic: { name: 'Педантичность' },
+            excitable: { name: 'Возбудимость' },
+            hyperthymic: { name: 'Гипертимность' },
+            dysthymic: { name: 'Дистимность' },
+            anxious: { name: 'Тревожность' },
+            exalted: { name: 'Экзальтированность' },
+            emotive: { name: 'Эмотивность' },
+            cyclothymic: { name: 'Циклотимность' }
+        };
+
+        // ФУНКЦИИ ТЕСТА
+        function initTest() {
+            testAnswers = {};
+            testCurrentQuestion = 0;
+            testShowResults = false;
+            testResults = null;
+            renderTestQuestion();
+        }
+
+        function getQuestionIcon(q) {
+            if (q.type === 'bigfive') return '🌟';
+            if (q.type === 'leonhard') return '🎭';
+            return '🎯';
+        }
+
+        function renderTestQuestion() {
+            const container = document.getElementById('testContent');
+            const q = testQuestions[testCurrentQuestion];
+            const progress = ((testCurrentQuestion + 1) / testQuestions.length) * 100;
+            const answeredCount = Object.keys(testAnswers).length;
+            const isComplete = answeredCount === testQuestions.length;
+
+            let html = `
+                <div class="test-progress-bar">
+                    <div class="test-progress-fill" style="width: ${progress}%"></div>
+                </div>
+                <div class="test-progress-text">
+                    <span>Вопрос ${testCurrentQuestion + 1} из ${testQuestions.length}</span>
+                    <span style="color: #8B2BE2; font-weight: 600;">${answeredCount} ответов</span>
+                </div>
+                
+                <div class="test-question-card test-card-animate">
+                    <div style="text-align: center; margin-bottom: 20px;">
+                        <div class="test-question-badge">
+                            <span>${getQuestionIcon(q)}</span>
+                            <span>Вопрос ${testCurrentQuestion + 1}</span>
+                        </div>
+                        <p class="test-question-text">${q.text}</p>
+                    </div>
+                    
+                    <div style="margin: 15px 0;">
+                        ${renderAnswerButtons()}
+                    </div>
+                </div>
+                
+                <div class="test-nav-buttons">
+                    ${testCurrentQuestion > 0 ? '<button class="test-nav-button back" onclick="testPrevious()">← Назад</button>' : ''}
+                    ${testCurrentQuestion === testQuestions.length - 1 && isComplete ? 
+                        '<button class="test-nav-button next" onclick="calculateTestResults()">Результаты ✨</button>' : ''}
+                </div>
+                
+                ${testCurrentQuestion === testQuestions.length - 1 && !isComplete ? `
+                    <div style="margin-top: 20px; text-align: center;">
+                        <p style="color: rgba(255,255,255,0.9); font-size: 13px; font-weight: 600;">⚠️ Ответьте на все вопросы</p>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 11px; margin-top: 5px;">Осталось: ${testQuestions.length - answeredCount}</p>
+                    </div>
+                ` : ''}
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderAnswerButtons() {
+            const answers = [
+                { value: 'strongly_agree', label: 'Полностью согласен' },
+                { value: 'agree', label: 'Согласен' },
+                { value: 'neutral', label: 'Нейтрально' },
+                { value: 'disagree', label: 'Не согласен' },
+                { value: 'strongly_disagree', label: 'Полностью не согласен' }
+            ];
+
+            return answers.map(a => {
+                const isSelected = testAnswers[testCurrentQuestion] === a.value;
+                return `<button class="test-answer-button ${isSelected ? 'selected' : ''}" 
+                    onclick="testAnswer('${a.value}')">${a.label}</button>`;
+            }).join('');
+        }
+
+        function testAnswer(value) {
+            testAnswers[testCurrentQuestion] = value;
+            if (testCurrentQuestion < testQuestions.length - 1) {
+                setTimeout(() => {
+                    testCurrentQuestion++;
+                    renderTestQuestion();
+                }, 300);
+            } else {
+                renderTestQuestion();
+            }
+        }
+
+        function testPrevious() {
+            if (testCurrentQuestion > 0) {
+                testCurrentQuestion--;
+                renderTestQuestion();
+            }
+        }
+
+        function generatePortrait(bigFive, mbtiType, leonhard, mbtiScores) {
+            const isIntrovert = mbtiScores.E < mbtiScores.I;
+            const isIntuitive = mbtiScores.S < mbtiScores.N;
+            const isThinking = mbtiScores.T >= mbtiScores.F;
+            const isJudging = mbtiScores.J >= mbtiScores.P;
+            
+            const extraversionLevel = bigFive.extraversion < 40 ? 'низкая' : bigFive.extraversion > 60 ? 'высокая' : 'умеренная';
+            const conscientiousnessLevel = bigFive.conscientiousness < 40 ? 'низкая' : bigFive.conscientiousness > 60 ? 'высокая' : 'умеренная';
+            const neuroticismLevel = bigFive.neuroticism < 40 ? 'низкий' : bigFive.neuroticism > 60 ? 'высокий' : 'умеренный';
+            const opennessLevel = bigFive.openness < 40 ? 'низкая' : bigFive.openness > 60 ? 'высокая' : 'умеренная';
+
+            let intro = `Вы – ${mbtiTypes[mbtiType].name} (${mbtiType}) с ${extraversionLevel} экстраверсией (${bigFive.extraversion}%) и ${opennessLevel} открытостью опыту (${bigFive.openness}%). `;
+            
+            if (isIntrovert) {
+                intro += `Вы черпаете энергию от уединения, предпочитая размышления шумным вечеринкам.`;
+            } else {
+                intro += `Вы получаете энергию от общения, легко заводите знакомства.`;
+            }
+
+            let work = `В работе: ${conscientiousnessLevel} добросовестность (${bigFive.conscientiousness}%). `;
+            if (isJudging && bigFive.conscientiousness > 60) {
+                work += `Вы планировщик - каждая задача продумана, дедлайны учтены.`;
+            } else if (!isJudging) {
+                work += `Вы гибки и адаптивны, предпочитаете спонтанность планам.`;
+            }
+
+            let relations = `В отношениях: `;
+            if (isThinking) {
+                relations += `вы логичны, цените честность выше дипломатии.`;
+            } else {
+                relations += `вы чутки к эмоциям, гармония важнее формальной правоты.`;
+            }
+
+            let stress = `Стресс: `;
+            if (neuroticismLevel === 'низкий') {
+                stress += `вы спокойны в кризисах (${bigFive.neuroticism}%).`;
+            } else if (neuroticismLevel === 'высокий') {
+                stress += `вы чувствительны (${bigFive.neuroticism}%), но это дает эмпатию.`;
+            } else {
+                stress += `здоровый баланс (${bigFive.neuroticism}%).`;
+            }
+
+            let development = `Развитие: `;
+            if (opennessLevel === 'высокая') {
+                development += `вы исследователь (${bigFive.openness}%), любите новое.`;
+            } else {
+                development += `вы практик, доверяете проверенным методам.`;
+            }
+
+            return { intro, work, relations, stress, development };
+        }
+
+        function calculateTestResults() {
+            const bigFiveScores = { extraversion: 0, agreeableness: 0, conscientiousness: 0, neuroticism: 0, openness: 0 };
+            const bigFiveCounts = { extraversion: 0, agreeableness: 0, conscientiousness: 0, neuroticism: 0, openness: 0 };
+            const leonhardScores = {
+                demonstrative: 0, stuck: 0, pedantic: 0, excitable: 0, hyperthymic: 0,
+                dysthymic: 0, anxious: 0, exalted: 0, emotive: 0, cyclothymic: 0
+            };
+            const mbtiScores = { E: 0, I: 0, S: 0, N: 0, T: 0, F: 0, J: 0, P: 0 };
+
+            testQuestions.forEach((q, i) => {
+                const answer = testAnswers[i];
+                let score = 0;
+                
+                if (answer === 'strongly_agree') score = 5;
+                else if (answer === 'agree') score = 4;
+                else if (answer === 'neutral') score = 3;
+                else if (answer === 'disagree') score = 2;
+                else if (answer === 'strongly_disagree') score = 1;
+
+                if (q.type === 'bigfive') {
+                    if (q.reversed) score = 6 - score;
+                    bigFiveScores[q.trait] += score;
+                    bigFiveCounts[q.trait]++;
+                } else if (q.type === 'leonhard') {
+                    if (score >= 4) leonhardScores[q.scale]++;
+                } else if (q.type === 'mbti') {
+                    if (score >= 4) mbtiScores[q.pole]++;
+                    else if (score <= 2) {
+                        const oppositePole = q.dimension === 'EI' ? (q.pole === 'E' ? 'I' : 'E') :
+                                           q.dimension === 'SN' ? (q.pole === 'S' ? 'N' : 'S') :
+                                           q.dimension === 'TF' ? (q.pole === 'T' ? 'F' : 'T') :
+                                           (q.pole === 'J' ? 'P' : 'J');
+                        mbtiScores[oppositePole]++;
+                    }
+                }
+            });
+
+            Object.keys(bigFiveScores).forEach(trait => {
+                const maxScore = bigFiveCounts[trait] * 5;
+                bigFiveScores[trait] = Math.round((bigFiveScores[trait] / maxScore) * 100);
+            });
+
+            const multipliers = {
+                demonstrative: 6, stuck: 6, pedantic: 6, excitable: 8,
+                hyperthymic: 6, dysthymic: 8, anxious: 6, exalted: 8,
+                emotive: 6, cyclothymic: 8
+            };
+            Object.keys(leonhardScores).forEach(scale => {
+                leonhardScores[scale] = Math.round(leonhardScores[scale] * multipliers[scale]);
+            });
+
+            const mbtiType = 
+                (mbtiScores.E >= mbtiScores.I ? 'E' : 'I') +
+                (mbtiScores.S >= mbtiScores.N ? 'S' : 'N') +
+                (mbtiScores.T >= mbtiScores.F ? 'T' : 'F') +
+                (mbtiScores.J >= mbtiScores.P ? 'J' : 'P');
+
+            const portrait = generatePortrait(bigFiveScores, mbtiType, leonhardScores, mbtiScores);
+
+            testResults = { bigFive: bigFiveScores, leonhard: leonhardScores, mbti: mbtiType, mbtiScores, portrait };
+            testShowResults = true;
+            renderTestResults();
+            window.scrollTo(0, 0);
+        }
+
+        function renderTestResults() {
+            const container = document.getElementById('testContent');
+            const r = testResults;
+            const bigFiveTraitsList = ['extraversion', 'agreeableness', 'conscientiousness', 'neuroticism', 'openness'];
+            const leonhardScalesList = Object.keys(leonhardData);
+
+            let html = `
+                <div class="test-results-container">
+                    <h3 style="text-align: center; color: #8B2BE2; font-size: 20px; margin-bottom: 20px;">✨ Ваш психологический портрет</h3>
+                    
+                    <!-- Портрет -->
+                    <div class="test-portrait-card">
+                        <div class="test-portrait-title">📖 Ваша история</div>
+                        <div class="test-portrait-text" style="margin-bottom: 12px;">${r.portrait.intro}</div>
+                        
+                        <div class="test-portrait-section">
+                            <div class="test-portrait-title">💼 Работа</div>
+                            <div class="test-portrait-text">${r.portrait.work}</div>
+                        </div>
+                        
+                        <div class="test-portrait-section">
+                            <div class="test-portrait-title">👥 Отношения</div>
+                            <div class="test-portrait-text">${r.portrait.relations}</div>
+                        </div>
+                        
+                        <div class="test-portrait-section">
+                            <div class="test-portrait-title">⚡ Стресс</div>
+                            <div class="test-portrait-text">${r.portrait.stress}</div>
+                        </div>
+                        
+                        <div class="test-portrait-section">
+                            <div class="test-portrait-title">🎨 Развитие</div>
+                            <div class="test-portrait-text">${r.portrait.development}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- MBTI -->
+                    <div class="test-section-title">🎯 MBTI</div>
+                    <div style="background: linear-gradient(135deg, rgba(138, 43, 226, 0.08), rgba(147, 112, 219, 0.08)); 
+                        border-radius: 15px; padding: 15px; margin-bottom: 15px; border: 2px solid rgba(138, 43, 226, 0.2);">
+                        <div class="test-mbti-badge">${r.mbti}</div>
+                        <div class="test-mbti-name">${mbtiTypes[r.mbti].name}</div>
+                        <div class="test-mbti-desc">${mbtiTypes[r.mbti].desc}</div>
+                        <div style="background: white; border-radius: 10px; padding: 10px; text-align: center;">
+                            <div style="font-weight: 600; color: #8B2BE2; font-size: 11px; margin-bottom: 5px;">💼 Профессии:</div>
+                            <div style="color: #666; font-size: 11px;">${mbtiTypes[r.mbti].prof.join(', ')}</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Big Five -->
+                    <div class="test-section-title">🌟 Big Five</div>
+                    <div style="background: rgba(135, 206, 235, 0.1); border-radius: 15px; padding: 12px; margin-bottom: 15px;">
+                        ${bigFiveTraitsList.map(trait => {
+                            const score = r.bigFive[trait];
+                            const traitData = bigFiveTraits[trait];
+                            const level = score >= 50 ? traitData.high : traitData.low;
+                            return `
+                                <div class="test-trait-bar">
+                                    <div class="test-trait-header">
+                                        <span class="test-trait-name">${traitData.name}</span>
+                                        <span class="test-trait-percent">${score}%</span>
+                                    </div>
+                                    <div class="test-trait-progress">
+                                        <div class="test-trait-fill" style="width: ${score}%"></div>
+                                        <span class="test-trait-label">${level.title}</span>
+                                    </div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    <!-- Леонгард -->
+                    <div class="test-section-title">🎭 Акцентуации</div>
+                    <div style="background: rgba(147, 112, 219, 0.1); border-radius: 15px; padding: 12px; margin-bottom: 15px;">
+                        ${leonhardScalesList.map(scale => {
+                            const score = r.leonhard[scale];
+                            const data = leonhardData[scale];
+                            let barColor = score >= 19 ? '#e74c3c' : score >= 12 ? '#27ae60' : '#95a5a6';
+                            return `
+                                <div style="display: flex; align-items: center; gap: 8px; margin: 8px 0;">
+                                    <div style="width: 100px; text-align: right; font-size: 11px; font-weight: 500; color: #555;">${data.name}</div>
+                                    <div style="flex: 1; height: 16px; background: #f0f0f0; border-radius: 8px; overflow: hidden;">
+                                        <div style="height: 100%; background: ${barColor}; width: ${Math.min((score/24)*100, 100)}%; transition: width 1s ease;"></div>
+                                    </div>
+                                    <div style="width: 30px; font-weight: 600; font-size: 11px; color: #333;">${score}</div>
+                                </div>
+                            `;
+                        }).join('')}
+                    </div>
+                    
+                    <button class="test-restart-button" onclick="handleTestRestart()">🔄 Пройти заново</button>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function handleTestRestart() {
+            initTest();
+        }
+
+        function handleTestBack() {
+            if (testShowResults) {
+                initTest();
+            } else {
+                showScreen('testMenu');
+            }
+        }
+
+        // ПЕРЕМЕННЫЕ ТЕСТА
+        let testAnswers = {};
+        let testCurrentQuestion = 0;
+        let testShowResults = false;
+        let testResults = null;
+
+        // ДАННЫЕ ЗАЗЕМЛЕНИЯ
         const groundingSteps = [
             { type: 'intro', title: 'Техника заземления 5-4-3-2-1', subtitle: 'Помогает быстро справиться с паникой и вернуться в "здесь и сейчас".\n\nДелайте медленно и вдумчиво. На каждый пункт тратьте 30-60 секунд.' },
             { number: '5', title: 'ПОСМОТРИТЕ', description: 'Назовите 5 вещей, которые вы видите вокруг себя', example: 'Например: окно, стол, телефон, дверь, лампа' },
@@ -1192,7 +1896,7 @@
                     'Мы будем работать с разными группами мышц. Напрягайте на 5 секунд, затем расслабляйте.',
                     'Правая рука: Сожмите кулак на 5 секунд... Отпустите. Почувствуйте тепло.',
                     'Левая рука: Сожмите кулак... Расслабьте. Ощутите разницу.',
-                    'Обе руки: Напрягите бицепсы, прижмите локти к телу... Расслабьте полностью.',
+                    'Обе руки: Напрегите бицепсы, прижмите локти к телу... Расслабьте полностью.',
                     'Заметьте, как приятно расслабление после напряжения.',
                     'Лицо: Поднимите брови высоко вверх... Расслабьте лоб. Он становится гладким.',
                     'Глаза: Зажмурьтесь крепко... Отпустите. Веки тяжёлые.',
@@ -1342,21 +2046,11 @@
             document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
             document.getElementById(screenId).classList.add('active');
             
-            if (screenId === 'advice') showDailyAdvice();
             if (screenId === 'grounding') initGrounding();
+            if (screenId === 'personalityTest') initTest();
             if (screenId !== 'breathing478' && screenId !== 'breathing4812') stopBreathing();
             if (screenId !== 'meditationScreen') stopMeditation();
             if (screenId !== 'relaxationScreen') stopRelaxation();
-        }
-
-        function showDailyAdvice() {
-            const today = new Date();
-            const dayOfMonth = today.getDate();
-            const index = (dayOfMonth - 1) % advices.length;
-            const advice = advices[index];
-            
-            document.getElementById('adviceNumber').textContent = '#' + advice.id;
-            document.getElementById('adviceText').textContent = advice.text;
         }
 
         function formatTime(seconds) {
